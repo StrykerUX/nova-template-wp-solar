@@ -22,7 +22,6 @@
 /* Mobile Sidebar */
 @media (max-width: 767px) {
   .sidebar {
-    top: var(--spacing-md);
     left: var(--spacing-md);
     bottom: calc(var(--bottom-bar-height) + var(--spacing-md));
     transform: translateX(calc(-100% - var(--spacing-md)));

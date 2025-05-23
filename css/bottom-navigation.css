@@ -16,6 +16,8 @@
   width: calc(100% - var(--spacing-md) * 2);
   max-width: 340px;    
   gap: 20px;
+  top: var(--spacing-md)!important;
+  max-height: 60px;
 }
 
 .bottom-nav-item {

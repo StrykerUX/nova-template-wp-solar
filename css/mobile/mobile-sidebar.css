@@ -2,7 +2,7 @@
 @media (max-width: 767px) {
   /* Keep sidebar floating but full screen on mobile */
   .sidebar {
-    top: var(--spacing-md);
+    top: calc(var(--spacing-md) + 60px + var(--spacing-md));
     left: var(--spacing-md);
     bottom: var(--spacing-md);
     right: var(--spacing-md);
@@ -12,7 +12,7 @@
     transition: transform var(--transition-slow);
     /* Keep the floating rounded style */
     border-radius: var(--radius-xl);
-    padding-bottom: var(--spacing-xxxl);
+    padding-top: var(--spacing-xxxl);
   }
   
   .sidebar.open {
