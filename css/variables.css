@@ -108,3 +108,14 @@
 
   --circles-background-color:rgba(120,120,120,.33);
 }
+
+@media(max-width: 767px){
+  :root{
+    --font-xxl: 22px;
+    --font-xl: 18px;
+    --font-lg: 16px;
+    --font-md: 14px;
+    --font-sm: 12px;
+    --font-xs: 10px;
+  }
+}
