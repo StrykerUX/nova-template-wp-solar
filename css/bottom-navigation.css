@@ -6,7 +6,7 @@
   transform: translateX(-50%);
   height: var(--bottom-bar-height);
   background-color: var(--bg-sidebar);
-  border-radius: var(--radius-xl);
+  border-radius: 0 0 var(--radius-xl) var(--radius-xl);
   box-shadow: var(--shadow-xl);
   display: flex;
   align-items: center;
@@ -15,8 +15,8 @@
   z-index: var(--z-sidebar);
   width: calc(100% - var(--spacing-md) * 2);
   max-width: 340px;    
-  gap: 20px;
-  top: var(--spacing-md)!important;
+  gap: 60px;
+  top: 0!important;
   max-height: 60px;
 }
 
