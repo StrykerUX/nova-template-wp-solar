@@ -146,8 +146,8 @@ $is_default_template = is_page_template('page-templates/default.php');
                             ?>
                         </div>
                         <div class="user-info">
-                            <div class="user-name"><?php echo esc_html($current_user->display_alias); ?></div>
-                            <div class="user-plan"><?php _e('Free plan', 'nova-template-wp-solar'); ?></div>
+                            <div class="user-name"><?php echo esc_html($current_user->display_name); ?></div>
+                            <div class="user-plan"><?php _e('Beta plan', 'nova-template-wp-solar'); ?></div>
                         </div>
                     </div>
                     <!-- Action Button -->
