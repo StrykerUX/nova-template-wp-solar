@@ -1,0 +1,112 @@
+// Warp Status Component - Nova Solar Theme
+
+.warp-status {
+    background-color: var(--nova-bg-tertiary);
+    border-radius: var(--nova-radius-lg);
+    padding: var(--nova-spacing-md);
+    border: 1px solid var(--nova-border-color);
+    
+    .warp-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: var(--nova-spacing-sm);
+        
+        span:first-child {
+            font-size: var(--nova-font-size-sm);
+            color: var(--nova-text-secondary);
+            font-weight: 500;
+        }
+        
+        .warp-percentage {
+            font-size: var(--nova-font-size-lg);
+            font-weight: 600;
+            color: var(--nova-text-primary);
+        }
+    }
+    
+    .warp-progress {
+        width: 100%;
+        height: 8px;
+        background-color: var(--nova-bg-primary);
+        border-radius: var(--nova-radius-xl);
+        overflow: hidden;
+        margin-bottom: var(--nova-spacing-sm);
+        position: relative;
+        
+        .warp-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--nova-primary) 0%, var(--nova-info) 100%);
+            border-radius: var(--nova-radius-xl);
+            transition: width 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.3),
+                    transparent
+                );
+                animation: shimmer 2s infinite;
+            }
+        }
+    }
+    
+    .warp-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: var(--nova-font-size-sm);
+        
+        span:first-child {
+            color: var(--nova-text-muted);
+        }
+        
+        span:last-child {
+            color: var(--nova-text-secondary);
+            font-weight: 500;
+        }
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+// Responsive adjustments
+@include breakpoint-down(md) {
+    .warp-status {
+        padding: var(--nova-spacing-sm);
+        
+        .warp-header {
+            span:first-child {
+                font-size: 0.75rem;
+            }
+            
+            .warp-percentage {
+                font-size: var(--nova-font-size-base);
+            }
+        }
+        
+        .warp-progress {
+            height: 6px;
+        }
+        
+        .warp-info {
+            font-size: 0.75rem;
+        }
+    }
+}

@@ -1,0 +1,95 @@
+// Theme Switcher Component - Nova Solar Theme
+
+.theme-switcher {
+    display: flex;
+    background-color: var(--nova-bg-tertiary);
+    border-radius: var(--nova-radius-lg);
+    padding: 4px;
+    border: 1px solid var(--nova-border-color);
+    
+    .theme-btn {
+        flex: 1;
+        @include button-base;
+        padding: var(--nova-spacing-sm);
+        background-color: transparent;
+        color: var(--nova-text-secondary);
+        border: none;
+        border-radius: var(--nova-radius-md);
+        font-size: var(--nova-font-size-sm);
+        font-weight: 500;
+        position: relative;
+        
+        i {
+            margin-right: var(--nova-spacing-xs);
+            font-size: 1rem;
+        }
+        
+        &:hover {
+            background-color: var(--nova-bg-primary);
+            transform: none;
+        }
+        
+        &:focus {
+            box-shadow: none;
+        }
+        
+        // Active state based on body class
+        body.theme-dark &[data-theme="dark"],
+        body.theme-light &[data-theme="light"] {
+            background-color: var(--nova-bg-card);
+            color: var(--nova-text-primary);
+            box-shadow: var(--nova-shadow-sm);
+            
+            &::before {
+                content: '';
+                position: absolute;
+                inset: -4px;
+                border: 2px solid var(--nova-primary);
+                border-radius: var(--nova-radius-lg);
+                opacity: 0.1;
+                pointer-events: none;
+            }
+        }
+    }
+}
+
+// Collapsed sidebar state
+.dashboard-sidebar.is-collapsed {
+    .theme-switcher {
+        flex-direction: column;
+        padding: var(--nova-spacing-xs);
+        
+        .theme-btn {
+            padding: var(--nova-spacing-xs);
+            
+            span {
+                display: none;
+            }
+            
+            i {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+// Animation for theme switching
+.theme-transitioning {
+    * {
+        transition: all var(--nova-transition-slow) ease !important;
+    }
+}
+
+// Mobile theme switcher (for responsive design)
+@include breakpoint-down(md) {
+    .mobile-theme-switcher {
+        position: fixed;
+        bottom: calc(var(--nova-mobile-nav-height) + var(--nova-spacing-md));
+        right: var(--nova-spacing-md);
+        z-index: z(fixed);
+        
+        .theme-switcher {
+            box-shadow: var(--nova-shadow-lg);
+        }
+    }
+}

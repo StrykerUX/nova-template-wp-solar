@@ -1,0 +1,159 @@
+// Dashboard Template - Nova Solar Theme
+
+// Dashboard Wrapper
+.dashboard-template {
+    .dashboard-wrapper {
+        display: flex;
+        min-height: 100vh;
+        background-color: var(--nova-bg-primary);
+        position: relative;
+        
+        // Fisheye dot pattern background
+        &::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.15;
+            background-image: 
+                radial-gradient(
+                    ellipse at 50% 50%,
+                    transparent 0%,
+                    transparent 40%,
+                    var(--nova-bg-primary) 100%
+                ),
+                radial-gradient(
+                    circle at 1px 1px,
+                    var(--nova-border-color) 1px,
+                    transparent 1px
+                );
+            background-size: 100% 100%, 30px 30px;
+            background-position: center, 0 0;
+            z-index: 0;
+        }
+    }
+    
+    // Main Content
+    .dashboard-main {
+        flex: 1;
+        margin-left: var(--nova-sidebar-width);
+        position: relative;
+        z-index: 1;
+        
+        @include breakpoint-down(lg) {
+            margin-left: 0;
+            padding-bottom: var(--nova-mobile-nav-height);
+        }
+        
+        .dashboard-content {
+            padding: var(--nova-spacing-xl);
+            max-width: 1400px;
+            margin: 0 auto;
+            
+            @include breakpoint-down(md) {
+                padding: var(--nova-spacing-md);
+            }
+        }
+    }
+    
+    // Dashboard Full - No overflow
+    &.dashboard-full {
+        height: 100vh;
+        overflow: hidden;
+        
+        .dashboard-wrapper {
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .dashboard-main {
+            height: 100vh;
+            overflow: hidden;
+            
+            .dashboard-content {
+                height: 100%;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+    
+    // Dashboard Overflow - Allow Y overflow
+    &.dashboard-overflow {
+        .dashboard-main {
+            min-height: 100vh;
+            
+            .dashboard-content {
+                min-height: calc(100vh - var(--nova-spacing-xl) * 2);
+            }
+        }
+    }
+}
+
+// Dark theme specific styles
+body.theme-dark {
+    .dashboard-wrapper {
+        &::before {
+            background-image: 
+                radial-gradient(
+                    ellipse at 50% 50%,
+                    transparent 0%,
+                    transparent 40%,
+                    var(--nova-bg-primary) 100%
+                ),
+                radial-gradient(
+                    circle at 1px 1px,
+                    rgba(255, 255, 255, 0.1) 1px,
+                    transparent 1px
+                );
+        }
+    }
+}
+
+// Light theme specific styles
+body.theme-light {
+    .dashboard-wrapper {
+        &::before {
+            background-image: 
+                radial-gradient(
+                    ellipse at 50% 50%,
+                    transparent 0%,
+                    transparent 40%,
+                    var(--nova-bg-primary) 100%
+                ),
+                radial-gradient(
+                    circle at 1px 1px,
+                    rgba(0, 0, 0, 0.05) 1px,
+                    transparent 1px
+                );
+        }
+    }
+}
+
+// Content animations
+.dashboard-content {
+    > * {
+        animation: fadeInUp 0.5s ease;
+        
+        @for $i from 1 through 10 {
+            &:nth-child(#{$i}) {
+                animation-delay: #{$i * 0.05}s;
+            }
+        }
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

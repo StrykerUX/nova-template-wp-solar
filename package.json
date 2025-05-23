@@ -1,0 +1,33 @@
+{
+  "name": "nova-template-wp-solar",
+  "version": "1.0.0",
+  "description": "Professional WordPress theme with Canvas and Dashboard templates",
+  "main": "index.js",
+  "scripts": {
+    "watch": "sass --watch assets/scss/main.scss:assets/css/main.css --style expanded",
+    "build": "sass assets/scss/main.scss:assets/css/main.css --style compressed",
+    "build:expanded": "sass assets/scss/main.scss:assets/css/main.css --style expanded",
+    "prefix": "postcss assets/css/main.css --use autoprefixer -o assets/css/main.css",
+    "build:production": "npm run build && npm run prefix"
+  },
+  "keywords": [
+    "wordpress",
+    "theme",
+    "nova",
+    "solar",
+    "dashboard"
+  ],
+  "author": "NovaLabss",
+  "license": "GPL-2.0-or-later",
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.24",
+    "postcss-cli": "^10.1.0",
+    "sass": "^1.63.3"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%",
+    "not dead"
+  ]
+}

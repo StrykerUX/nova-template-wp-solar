@@ -1,0 +1,64 @@
+// Canvas QL Template - Nova Solar Theme
+
+.template-canvas-ql {
+    // Main content area
+    #canvas-ql-main {
+        min-height: calc(100vh - 60px); // Account for footer
+        padding: var(--nova-spacing-xl);
+        
+        @include breakpoint-down(md) {
+            padding: var(--nova-spacing-md);
+        }
+    }
+    
+    // Footer specific to Canvas QL
+    .canvas-ql-footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: var(--nova-bg-primary);
+        border-top: 1px solid var(--nova-border-color);
+        padding: var(--nova-spacing-md) 0;
+        z-index: z(sticky);
+        
+        .container {
+            @include container;
+        }
+        
+        .powered-by {
+            text-align: center;
+            margin: 0;
+            color: var(--nova-text-secondary);
+            font-size: var(--nova-font-size-sm);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            
+            @include transition(color);
+            
+            &:hover {
+                color: var(--nova-text-primary);
+            }
+        }
+    }
+    
+    // Content wrapper
+    .site-content {
+        padding: 0;
+    }
+    
+    // Remove default site padding
+    .site {
+        min-height: 100vh;
+    }
+}
+
+// Light theme adjustments
+body.theme-light {
+    &.template-canvas-ql {
+        .canvas-ql-footer {
+            background-color: var(--nova-bg-secondary);
+            box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.05);
+        }
+    }
+}

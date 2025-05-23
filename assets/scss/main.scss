@@ -1,0 +1,35 @@
+// Main SCSS file - imports all partials
+// Nova Solar Theme
+
+// 1. Abstracts - Variables, Functions, Mixins
+@import 'abstracts/variables';
+@import 'abstracts/functions';
+@import 'abstracts/mixins';
+
+// 2. Base - Reset, Typography, Base styles
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/base';
+
+// 3. Layout - Header, Footer, Grid, Forms
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/sidebar';
+@import 'layout/grid';
+
+// 4. Components - Buttons, Cards, etc.
+@import 'components/buttons';
+@import 'components/forms';
+@import 'components/cards';
+@import 'components/warp-status';
+@import 'components/user-profile';
+@import 'components/theme-switcher';
+@import 'components/mobile-nav';
+
+// 5. Templates - Template specific styles
+@import 'templates/canvas-ql';
+@import 'templates/canvas-full';
+@import 'templates/dashboard';
+
+// 6. Utilities - Helper classes
+@import 'abstracts/utilities';

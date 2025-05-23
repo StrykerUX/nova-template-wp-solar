@@ -1,0 +1,128 @@
+// Variables - Nova Solar Theme
+// This file contains all CSS custom properties and SCSS variables
+
+// CSS Custom Properties (can be used by plugins)
+:root {
+    // Brand Colors
+    --nova-primary: #007bff;
+    --nova-secondary: #6c757d;
+    --nova-success: #28a745;
+    --nova-danger: #dc3545;
+    --nova-warning: #ffc107;
+    --nova-info: #17a2b8;
+    --nova-light: #f8f9fa;
+    --nova-dark: #343a40;
+    
+    // Neutral Colors
+    --nova-white: #ffffff;
+    --nova-gray-100: #f8f9fa;
+    --nova-gray-200: #e9ecef;
+    --nova-gray-300: #dee2e6;
+    --nova-gray-400: #ced4da;
+    --nova-gray-500: #adb5bd;
+    --nova-gray-600: #6c757d;
+    --nova-gray-700: #495057;
+    --nova-gray-800: #343a40;
+    --nova-gray-900: #212529;
+    --nova-black: #000000;
+    
+    // Theme Colors - Dark Mode (Default)
+    --nova-bg-primary: #0a0a0a;
+    --nova-bg-secondary: #1a1a1a;
+    --nova-bg-tertiary: #2a2a2a;
+    --nova-bg-card: #1f1f1f;
+    --nova-text-primary: #ffffff;
+    --nova-text-secondary: #b0b0b0;
+    --nova-text-muted: #6c757d;
+    --nova-border-color: #333333;
+    
+    // Spacing
+    --nova-spacing-xs: 0.25rem;
+    --nova-spacing-sm: 0.5rem;
+    --nova-spacing-md: 1rem;
+    --nova-spacing-lg: 1.5rem;
+    --nova-spacing-xl: 2rem;
+    --nova-spacing-xxl: 3rem;
+    
+    // Typography
+    --nova-font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --nova-font-family-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --nova-font-size-base: 1rem;
+    --nova-font-size-sm: 0.875rem;
+    --nova-font-size-lg: 1.125rem;
+    --nova-font-size-xl: 1.25rem;
+    --nova-font-size-xxl: 1.5rem;
+    --nova-line-height-base: 1.5;
+    
+    // Border Radius
+    --nova-radius-sm: 0.25rem;
+    --nova-radius-md: 0.5rem;
+    --nova-radius-lg: 0.75rem;
+    --nova-radius-xl: 1rem;
+    --nova-radius-xxl: 1.5rem;
+    --nova-radius-round: 50%;
+    
+    // Shadows
+    --nova-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --nova-shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    --nova-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+    
+    // Transitions
+    --nova-transition-fast: 150ms;
+    --nova-transition-base: 300ms;
+    --nova-transition-slow: 500ms;
+    
+    // Z-index
+    --nova-zindex-dropdown: 1000;
+    --nova-zindex-sticky: 1020;
+    --nova-zindex-fixed: 1030;
+    --nova-zindex-modal-backdrop: 1040;
+    --nova-zindex-modal: 1050;
+    --nova-zindex-popover: 1060;
+    --nova-zindex-tooltip: 1070;
+    
+    // Dashboard Specific
+    --nova-sidebar-width: 280px;
+    --nova-sidebar-collapsed-width: 60px;
+    --nova-mobile-nav-height: 60px;
+}
+
+// Light Theme Override
+body.theme-light {
+    --nova-bg-primary: #ffffff;
+    --nova-bg-secondary: #f8f9fa;
+    --nova-bg-tertiary: #e9ecef;
+    --nova-bg-card: #ffffff;
+    --nova-text-primary: #212529;
+    --nova-text-secondary: #495057;
+    --nova-text-muted: #6c757d;
+    --nova-border-color: #dee2e6;
+    
+    // Light theme shadows
+    --nova-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.05);
+    --nova-shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    --nova-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.125);
+}
+
+// SCSS Variables for internal use
+$breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px
+);
+
+// Grid
+$grid-columns: 12;
+$grid-gutter-width: 1.5rem;
+
+// Container max widths
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+    xxl: 1320px
+);

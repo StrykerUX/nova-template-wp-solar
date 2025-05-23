@@ -1,0 +1,251 @@
+// Grid System - Nova Solar Theme
+
+// Container
+.container {
+    @include container;
+}
+
+.container-fluid {
+    width: 100%;
+    padding-right: var(--nova-spacing-md);
+    padding-left: var(--nova-spacing-md);
+}
+
+// Row
+.row {
+    @include make-row;
+}
+
+// Columns
+@for $i from 1 through $grid-columns {
+    .col-#{$i} {
+        @include make-col($i);
+    }
+}
+
+// Auto column
+.col-auto {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: 100%;
+}
+
+// Equal width columns
+.col {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+// Responsive columns
+@each $breakpoint, $min-width in $breakpoints {
+    @if $breakpoint != xs {
+        @include breakpoint($breakpoint) {
+            // Responsive column classes
+            @for $i from 1 through $grid-columns {
+                .col-#{$breakpoint}-#{$i} {
+                    @include make-col($i);
+                }
+            }
+            
+            // Responsive auto column
+            .col-#{$breakpoint}-auto {
+                flex: 0 0 auto;
+                width: auto;
+                max-width: 100%;
+            }
+            
+            // Responsive equal width
+            .col-#{$breakpoint} {
+                flex-basis: 0;
+                flex-grow: 1;
+                max-width: 100%;
+            }
+            
+            // Responsive offsets
+            @for $i from 0 through ($grid-columns - 1) {
+                .offset-#{$breakpoint}-#{$i} {
+                    margin-left: if($i == 0, 0, percentage($i / $grid-columns));
+                }
+            }
+            
+            // Responsive ordering
+            .order-#{$breakpoint}-first {
+                order: -1;
+            }
+            
+            .order-#{$breakpoint}-last {
+                order: $grid-columns + 1;
+            }
+            
+            @for $i from 0 through $grid-columns {
+                .order-#{$breakpoint}-#{$i} {
+                    order: $i;
+                }
+            }
+        }
+    }
+}
+
+// Offsets
+@for $i from 0 through ($grid-columns - 1) {
+    .offset-#{$i} {
+        margin-left: if($i == 0, 0, percentage($i / $grid-columns));
+    }
+}
+
+// Ordering
+.order-first {
+    order: -1;
+}
+
+.order-last {
+    order: $grid-columns + 1;
+}
+
+@for $i from 0 through $grid-columns {
+    .order-#{$i} {
+        order: $i;
+    }
+}
+
+// Alignment
+.align-items-start {
+    align-items: flex-start;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.align-items-end {
+    align-items: flex-end;
+}
+
+.align-items-stretch {
+    align-items: stretch;
+}
+
+.align-items-baseline {
+    align-items: baseline;
+}
+
+.align-self-start {
+    align-self: flex-start;
+}
+
+.align-self-center {
+    align-self: center;
+}
+
+.align-self-end {
+    align-self: flex-end;
+}
+
+.align-self-stretch {
+    align-self: stretch;
+}
+
+.align-self-baseline {
+    align-self: baseline;
+}
+
+// Justify content
+.justify-content-start {
+    justify-content: flex-start;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.justify-content-end {
+    justify-content: flex-end;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.justify-content-around {
+    justify-content: space-around;
+}
+
+.justify-content-evenly {
+    justify-content: space-evenly;
+}
+
+// Gaps
+.gap-0 {
+    gap: 0;
+}
+
+.gap-1 {
+    gap: var(--nova-spacing-xs);
+}
+
+.gap-2 {
+    gap: var(--nova-spacing-sm);
+}
+
+.gap-3 {
+    gap: var(--nova-spacing-md);
+}
+
+.gap-4 {
+    gap: var(--nova-spacing-lg);
+}
+
+.gap-5 {
+    gap: var(--nova-spacing-xl);
+}
+
+// Row gaps
+.row-gap-0 {
+    row-gap: 0;
+}
+
+.row-gap-1 {
+    row-gap: var(--nova-spacing-xs);
+}
+
+.row-gap-2 {
+    row-gap: var(--nova-spacing-sm);
+}
+
+.row-gap-3 {
+    row-gap: var(--nova-spacing-md);
+}
+
+.row-gap-4 {
+    row-gap: var(--nova-spacing-lg);
+}
+
+.row-gap-5 {
+    row-gap: var(--nova-spacing-xl);
+}
+
+// Column gaps
+.column-gap-0 {
+    column-gap: 0;
+}
+
+.column-gap-1 {
+    column-gap: var(--nova-spacing-xs);
+}
+
+.column-gap-2 {
+    column-gap: var(--nova-spacing-sm);
+}
+
+.column-gap-3 {
+    column-gap: var(--nova-spacing-md);
+}
+
+.column-gap-4 {
+    column-gap: var(--nova-spacing-lg);
+}
+
+.column-gap-5 {
+    column-gap: var(--nova-spacing-xl);
+}

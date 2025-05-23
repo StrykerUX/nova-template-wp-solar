@@ -1,0 +1,39 @@
+// Canvas Full Template - Nova Solar Theme
+
+.template-canvas-full {
+    // Reset all spacing and styling
+    margin: 0;
+    padding: 0;
+    
+    // Ensure full viewport coverage
+    &.canvas-full {
+        min-height: 100vh;
+        background-color: var(--nova-bg-primary);
+        
+        // Direct content without any wrapper styling
+        > * {
+            // Allow content to define its own styling
+        }
+    }
+    
+    // Remove any default WordPress admin bar space
+    &.admin-bar {
+        margin-top: 0;
+        
+        #wpadminbar {
+            display: none;
+        }
+    }
+}
+
+// Ensure no interference from theme styles
+body.template-canvas-full {
+    // Override any global styles that might interfere
+    .site,
+    .site-content,
+    #content,
+    #page {
+        all: unset;
+        display: block;
+    }
+}

@@ -1,0 +1,175 @@
+// Sidebar - Nova Solar Theme
+
+.dashboard-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: var(--nova-sidebar-width);
+    background-color: var(--nova-bg-secondary);
+    border-right: 1px solid var(--nova-border-color);
+    display: flex;
+    flex-direction: column;
+    z-index: z(sticky);
+    @include transition(transform, width);
+    
+    @include breakpoint-down(lg) {
+        transform: translateX(-100%);
+        
+        &.is-open {
+            transform: translateX(0);
+        }
+    }
+    
+    // Sidebar Header
+    .sidebar-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: var(--nova-spacing-lg);
+        border-bottom: 1px solid var(--nova-border-color);
+        
+        .sidebar-brand {
+            display: flex;
+            align-items: center;
+            gap: var(--nova-spacing-sm);
+            
+            .brand-icon {
+                @include flex-center;
+                width: 40px;
+                height: 40px;
+                background-color: var(--nova-primary);
+                color: white;
+                border-radius: var(--nova-radius-md);
+                font-size: 1.25rem;
+            }
+            
+            .brand-text {
+                font-size: var(--nova-font-size-lg);
+                font-weight: 600;
+                color: var(--nova-text-primary);
+            }
+        }
+        
+        .sidebar-toggle {
+            @include button-base;
+            padding: var(--nova-spacing-xs);
+            background-color: transparent;
+            color: var(--nova-text-secondary);
+            
+            @include breakpoint(lg) {
+                display: none;
+            }
+            
+            &:hover {
+                background-color: var(--nova-bg-tertiary);
+            }
+        }
+    }
+    
+    // Sidebar Navigation
+    .sidebar-nav {
+        flex: 1;
+        overflow-y: auto;
+        padding: var(--nova-spacing-md);
+        @include custom-scrollbar;
+        
+        .nav-section {
+            margin-bottom: var(--nova-spacing-lg);
+            
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        
+        .nav-item {
+            margin-bottom: var(--nova-spacing-xs);
+            
+            .nav-link {
+                display: flex;
+                align-items: center;
+                gap: var(--nova-spacing-sm);
+                padding: var(--nova-spacing-sm) var(--nova-spacing-md);
+                border-radius: var(--nova-radius-md);
+                color: var(--nova-text-secondary);
+                font-size: var(--nova-font-size-base);
+                font-weight: 500;
+                @include transition(background-color, color);
+                
+                i {
+                    font-size: 1.25rem;
+                    width: 1.25rem;
+                    text-align: center;
+                }
+                
+                &:hover {
+                    background-color: var(--nova-bg-tertiary);
+                    color: var(--nova-text-primary);
+                    text-decoration: none;
+                }
+            }
+            
+            &.active .nav-link {
+                background-color: var(--nova-bg-card);
+                color: var(--nova-primary);
+                box-shadow: var(--nova-shadow-sm);
+            }
+        }
+    }
+    
+    // Sidebar Footer
+    .sidebar-footer {
+        padding: var(--nova-spacing-md);
+        border-top: 1px solid var(--nova-border-color);
+        
+        > * + * {
+            margin-top: var(--nova-spacing-md);
+        }
+    }
+}
+
+// Collapsed Sidebar
+.dashboard-sidebar.is-collapsed {
+    width: var(--nova-sidebar-collapsed-width);
+    
+    .sidebar-brand {
+        .brand-text {
+            display: none;
+        }
+    }
+    
+    .nav-link {
+        justify-content: center;
+        
+        span {
+            display: none;
+        }
+    }
+    
+    .sidebar-footer > * {
+        display: none;
+    }
+}
+
+// Mobile Sidebar Overlay
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: calc(z(sticky) - 1);
+    opacity: 0;
+    visibility: hidden;
+    @include transition(opacity, visibility);
+    
+    &.is-visible {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    @include breakpoint(lg) {
+        display: none;
+    }
+}

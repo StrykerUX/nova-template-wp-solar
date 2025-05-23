@@ -1,0 +1,182 @@
+// Header - Nova Solar Theme
+
+.site-header {
+    background-color: var(--nova-bg-secondary);
+    border-bottom: 1px solid var(--nova-border-color);
+    position: sticky;
+    top: 0;
+    z-index: z(sticky);
+    @include transition(background-color, border-color);
+    
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: var(--nova-spacing-md);
+        padding-bottom: var(--nova-spacing-md);
+        
+        @include breakpoint-down(md) {
+            flex-wrap: wrap;
+        }
+    }
+    
+    // Site branding
+    .site-branding {
+        display: flex;
+        align-items: center;
+        
+        .custom-logo-link {
+            display: inline-flex;
+            align-items: center;
+            
+            img {
+                height: 40px;
+                width: auto;
+                
+                @include breakpoint-down(md) {
+                    height: 32px;
+                }
+            }
+        }
+        
+        .site-title {
+            margin: 0;
+            font-size: var(--nova-font-size-xl);
+            font-weight: 700;
+            
+            a {
+                color: var(--nova-text-primary);
+                text-decoration: none;
+                @include transition(color);
+                
+                &:hover {
+                    color: var(--nova-primary);
+                }
+            }
+        }
+    }
+    
+    // Main navigation
+    .main-navigation {
+        @include breakpoint-down(md) {
+            width: 100%;
+            margin-top: var(--nova-spacing-md);
+            padding-top: var(--nova-spacing-md);
+            border-top: 1px solid var(--nova-border-color);
+        }
+        
+        ul {
+            display: flex;
+            align-items: center;
+            gap: var(--nova-spacing-lg);
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            
+            @include breakpoint-down(md) {
+                flex-direction: column;
+                align-items: stretch;
+                gap: var(--nova-spacing-sm);
+            }
+            
+            li {
+                margin: 0;
+                
+                a {
+                    display: block;
+                    padding: var(--nova-spacing-sm) 0;
+                    color: var(--nova-text-secondary);
+                    font-weight: 500;
+                    text-decoration: none;
+                    position: relative;
+                    @include transition(color);
+                    
+                    @include breakpoint-down(md) {
+                        padding: var(--nova-spacing-sm) var(--nova-spacing-md);
+                        background-color: var(--nova-bg-tertiary);
+                        border-radius: var(--nova-radius-md);
+                    }
+                    
+                    &:hover {
+                        color: var(--nova-text-primary);
+                    }
+                    
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 0;
+                        height: 2px;
+                        background-color: var(--nova-primary);
+                        @include transition(width);
+                        
+                        @include breakpoint-down(md) {
+                            display: none;
+                        }
+                    }
+                    
+                    &:hover::after {
+                        width: 100%;
+                    }
+                }
+                
+                &.current-menu-item a,
+                &.current_page_item a {
+                    color: var(--nova-primary);
+                    
+                    &::after {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        
+        // Dropdown menus
+        .sub-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 200px;
+            background-color: var(--nova-bg-card);
+            border: 1px solid var(--nova-border-color);
+            border-radius: var(--nova-radius-md);
+            box-shadow: var(--nova-shadow-lg);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            @include transition(opacity, visibility, transform);
+            
+            li {
+                a {
+                    padding: var(--nova-spacing-sm) var(--nova-spacing-md);
+                    font-size: var(--nova-font-size-sm);
+                    
+                    &:hover {
+                        background-color: var(--nova-bg-tertiary);
+                    }
+                }
+            }
+        }
+        
+        li:hover > .sub-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+    }
+}
+
+// Sticky header scroll effect
+.site-header.is-scrolled {
+    box-shadow: var(--nova-shadow-md);
+}
+
+// Admin bar adjustment
+.admin-bar .site-header {
+    top: 32px;
+    
+    @media screen and (max-width: 782px) {
+        top: 46px;
+    }
+}

@@ -1,0 +1,124 @@
+// Footer - Nova Solar Theme
+
+.site-footer {
+    background-color: var(--nova-bg-secondary);
+    border-top: 1px solid var(--nova-border-color);
+    padding: var(--nova-spacing-xl) 0;
+    margin-top: auto; // Push footer to bottom
+    @include transition(background-color, border-color);
+    
+    .container {
+        @include container;
+    }
+    
+    .site-info {
+        text-align: center;
+        
+        p {
+            margin: 0;
+            color: var(--nova-text-secondary);
+            font-size: var(--nova-font-size-sm);
+        }
+        
+        a {
+            color: var(--nova-primary);
+            text-decoration: none;
+            
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    
+    // Footer widgets area
+    &.has-widgets {
+        .footer-widgets {
+            padding-bottom: var(--nova-spacing-xl);
+            margin-bottom: var(--nova-spacing-xl);
+            border-bottom: 1px solid var(--nova-border-color);
+            
+            .widget-area {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: var(--nova-spacing-xl);
+                
+                @include breakpoint-down(md) {
+                    grid-template-columns: 1fr;
+                    gap: var(--nova-spacing-lg);
+                }
+            }
+            
+            .widget {
+                h2,
+                h3,
+                h4 {
+                    font-size: var(--nova-font-size-lg);
+                    margin-bottom: var(--nova-spacing-md);
+                    color: var(--nova-text-primary);
+                }
+                
+                ul {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    
+                    li {
+                        margin-bottom: var(--nova-spacing-sm);
+                        
+                        a {
+                            color: var(--nova-text-secondary);
+                            text-decoration: none;
+                            @include transition(color);
+                            
+                            &:hover {
+                                color: var(--nova-text-primary);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    // Social links
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: var(--nova-spacing-md);
+        margin-top: var(--nova-spacing-lg);
+        
+        a {
+            @include flex-center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--nova-bg-tertiary);
+            border-radius: var(--nova-radius-round);
+            color: var(--nova-text-secondary);
+            text-decoration: none;
+            @include transition(background-color, color, transform);
+            
+            &:hover {
+                background-color: var(--nova-primary);
+                color: white;
+                transform: translateY(-2px);
+            }
+            
+            i {
+                font-size: 1.25rem;
+            }
+        }
+    }
+}
+
+// Light theme adjustments
+body.theme-light {
+    .site-footer {
+        background-color: var(--nova-bg-secondary);
+        
+        .social-links a {
+            &:hover {
+                box-shadow: var(--nova-shadow-sm);
+            }
+        }
+    }
+}
