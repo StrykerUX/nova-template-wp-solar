@@ -62,6 +62,7 @@
 /* Page Header */
 .page-header {
   margin-bottom: var(--spacing-xl);
+  display:none!important;
 }
 
 .page-title {
