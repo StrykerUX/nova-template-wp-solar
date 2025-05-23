@@ -28,6 +28,9 @@
 
         // Handle resize
         handleResize();
+        
+        // Set active navigation item based on current URL
+        setActiveNavItem();
     }
 
     // Add Event Listeners
@@ -52,10 +55,36 @@
         // Window resize
         window.addEventListener('resize', debounce(handleResize, 250));
 
-        // Navigation items
-        const navItems = document.querySelectorAll('.nav-item');
-        navItems.forEach(item => {
-            item.addEventListener('click', handleNavItemClick);
+        // Navigation items - Let the links work naturally
+        // Just handle visual active state updates
+        const navItems = document.querySelectorAll('.nav-list a');
+        navItems.forEach(link => {
+            // Don't interfere with link navigation
+            // Just update active states when clicked
+            link.addEventListener('click', function(e) {
+                // Get the parent li element
+                const parentLi = this.closest('li');
+                
+                // Update active state in localStorage for persistence
+                if (parentLi) {
+                    const allLis = document.querySelectorAll('.nav-list li');
+                    allLis.forEach((li, index) => {
+                        if (li === parentLi) {
+                            localStorage.setItem('activeNavItem', index);
+                        }
+                    });
+                }
+                
+                // Close mobile sidebar after navigation (with delay)
+                if (isMobile) {
+                    setTimeout(() => {
+                        if (typeof closeMobileSidebar === 'function') {
+                            closeMobileSidebar();
+                        }
+                    }, 100);
+                }
+                // Let the link continue with its normal navigation
+            });
         });
 
         // Bottom navigation items
@@ -116,20 +145,40 @@
     }
 
     // Navigation Functions
-    function handleNavItemClick(e) {
-        e.preventDefault();
+    // Handled inline in addEventListeners to avoid preventing default link behavior
+    
+    // Set active navigation item based on current URL
+    function setActiveNavItem() {
+        const currentUrl = window.location.href;
+        const navLinks = document.querySelectorAll('.nav-list a');
         
-        // Remove active class from all items
-        document.querySelectorAll('.nav-item').forEach(item => {
-            item.classList.remove('active');
+        // Remove all active classes first
+        document.querySelectorAll('.nav-list li').forEach(li => {
+            li.classList.remove('active');
         });
-
-        // Add active class to clicked item
-        e.currentTarget.classList.add('active');
-
-        // Close mobile sidebar after navigation
-        if (isMobile) {
-            closeMobileSidebar();
+        
+        // Find and set the active item
+        navLinks.forEach(link => {
+            if (link.href === currentUrl) {
+                const parentLi = link.closest('li');
+                if (parentLi) {
+                    parentLi.classList.add('active');
+                }
+            }
+        });
+        
+        // If no exact match, try to match by path
+        if (!document.querySelector('.nav-list li.active')) {
+            const currentPath = window.location.pathname;
+            navLinks.forEach(link => {
+                const linkPath = new URL(link.href).pathname;
+                if (currentPath.startsWith(linkPath) && linkPath !== '/') {
+                    const parentLi = link.closest('li');
+                    if (parentLi) {
+                        parentLi.classList.add('active');
+                    }
+                }
+            });
         }
     }
 

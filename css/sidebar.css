@@ -179,10 +179,19 @@
   flex-direction: column;
   gap: var(--spacing-sm);
   padding: 0 var(--spacing-md);
+  list-style: none;
+  margin: 0;
 }
 .sidebar.closed .nav-list {
   padding: 0 var(--spacing-sm);
 }
+
+/* Style the list items */
+.nav-list li {
+  list-style: none;
+}
+
+/* Style the nav links */
 .nav-item {
   display: flex;
   align-items: center;
@@ -197,6 +206,8 @@
   white-space: nowrap;
   overflow: hidden;
   position: relative;
+  text-decoration: none;
+  width: 100%;
 }
 
 .sidebar.closed .nav-item {
@@ -209,10 +220,19 @@
 .nav-item:hover {
   background-color: var(--bg-hover);
   color: var(--text-primary);
+  text-decoration: none;
 }
 
+/* Apply active state to the list item */
+.nav-list li.active .nav-item,
 .nav-item.active {
   background-color: var(--accent-primary);
+  color: var(--bg-primary);
+}
+
+/* Ensure icons change color properly */
+.nav-list li.active .nav-item-icon .ti,
+.nav-item.active .nav-item-icon .ti {
   color: var(--bg-primary);
 }
 
