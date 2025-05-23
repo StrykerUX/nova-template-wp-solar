@@ -15,7 +15,7 @@
   z-index: var(--z-sidebar);
   width: calc(100% - var(--spacing-md) * 2);
   max-width: 340px;    
-  gap: 60px;
+  gap: 50px;
   top: 0!important;
   max-height: 60px;
 }
