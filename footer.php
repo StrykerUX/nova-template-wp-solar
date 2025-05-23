@@ -120,7 +120,6 @@ $is_default_template = is_page_template('page-templates/default.php');
     .dashboard-canvas .main-content,
     .dashboard-canvas-main {
         padding: 0 !important;
-        margin: 0 !important;
         overflow: hidden !important;
     }
     
