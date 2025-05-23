@@ -1,0 +1,18 @@
+NOTA IMPORTANTE: Screenshot.png
+================================
+
+Para completar tu tema de WordPress, necesitas crear un archivo screenshot.png con las siguientes características:
+
+- Dimensiones: 1200x900 píxeles (proporción 4:3)
+- Formato: PNG
+- Ubicación: En la raíz del tema (D:\GitHub\nova-template-wp-solar\screenshot.png)
+
+El screenshot debe mostrar:
+1. El dashboard completo con el sidebar expandido
+2. Algunos elementos de contenido de ejemplo
+3. Preferiblemente en tema oscuro para mostrar el diseño moderno
+
+Este archivo es requerido por WordPress para mostrar la vista previa del tema en el panel de administración.
+
+Alternativamente, puedes usar una captura de pantalla del proyecto original ai-solar-nova-ui
+y redimensionarla a 1200x900 píxeles.

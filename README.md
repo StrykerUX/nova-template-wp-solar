@@ -1,209 +1,152 @@
-# Nova Solar WordPress Theme
+# Nova Template WP Solar
 
-A professional WordPress theme with Canvas and Dashboard templates, featuring dark/light modes and a modular CSS architecture designed for extensibility.
+Un tema de WordPress moderno con un dashboard elegante, sidebar dinámico y soporte completo para personalización.
 
-## Features
+## Características
 
-- **3 Template Types:**
-  - **Canvas QL (Default)**: No header, simple footer with "Powered By NovaLabss"
-  - **Canvas Full**: Completely blank canvas for full customization
-  - **Dashboard**: Two versions (Overflow/Full) with sidebar navigation and advanced UI
-  
-- **Dark/Light Theme Modes**: Persistent theme switching across pages
-- **Modular SCSS Architecture**: Organized and maintainable stylesheet structure
-- **CSS Custom Properties**: Extensible variables for plugin integration
-- **Responsive Design**: Mobile-first approach with dedicated mobile navigation
-- **Fisheye Dot Pattern**: Unique background effect for dashboard templates
-- **Tabler Icons**: Comprehensive icon library included
+- **Dashboard Moderno**: Interfaz moderna con sidebar flotante y diseño responsivo
+- **Tema Oscuro/Claro**: Cambio dinámico entre temas con persistencia en localStorage
+- **Sidebar Dinámico**: Sidebar que se puede expandir/contraer con animaciones suaves
+- **Logos Personalizables**: Soporte para logo icono y logo completo desde el personalizador
+- **Menús de WordPress**: Integración completa con el sistema de menús de WordPress
+- **Soporte para Iconos**: Capacidad de añadir iconos HTML personalizados a los elementos del menú
+- **3 Plantillas de Página**:
+  - **Por defecto**: Sin dashboard, solo contenido con footer simple
+  - **Dashboard Canvas**: Sin scroll, contenido ocupa 100% del área disponible
+  - **Dashboard Over**: Con scroll normal y padding estándar
+- **Totalmente Responsivo**: Diseño optimizado para móviles con navegación inferior
+- **Soporte para Usuario**: Muestra avatar del usuario o placeholder con inicial
 
-## Installation
+## Instalación
 
-1. Download the theme files
-2. Upload to `/wp-content/themes/nova-template-wp-solar/`
-3. Activate the theme through the WordPress admin panel
+1. Descarga el tema
+2. Sube la carpeta `nova-template-wp-solar` a `/wp-content/themes/`
+3. Activa el tema desde el panel de WordPress
 
-## Development Setup
+## Configuración
 
-### Requirements
+### Logos
 
-- Node.js and npm
-- Sass compiler
-- WordPress 5.0 or higher
-- PHP 7.0 or higher
+1. Ve a **Apariencia > Personalizar > Logo Settings**
+2. Sube tu **Logo Icon** (se muestra siempre, recomendado 40x40px)
+3. Sube tu **Full Logo** (se muestra cuando el sidebar está expandido, recomendado 150px de ancho)
 
-### Compiling SCSS
+### Menús
 
-Install dependencies:
-```bash
-npm install
-```
+1. Ve a **Apariencia > Menús**
+2. Crea un menú y asígnalo a **"SideBar Desktop"**
+3. Para añadir iconos a los elementos del menú:
+   - En cada elemento del menú, encontrarás un campo "Icon HTML"
+   - Añade el HTML del icono, por ejemplo: `<i class="ti ti-home"></i>`
+4. Para añadir separadores:
+   - Crea un enlace personalizado con URL `#` y título `--separator--`
 
-Watch for changes:
-```bash
-npm run watch
-```
+### Menú Móvil
 
-Build for production:
-```bash
-npm run build
-```
+1. Crea un menú separado para móvil
+2. Asígnalo a **"Mobile Bottom Navigation"**
+3. Solo se mostrarán los elementos de primer nivel
 
-## Template Usage
+### Plantillas de Página
 
-### Canvas QL Template
-Perfect for landing pages with minimal chrome:
-```php
-/*
-Template Name: Canvas QL
-*/
-```
+Al crear o editar una página, en **Atributos de página** puedes seleccionar:
 
-### Canvas Full Template
-Complete blank slate for custom applications:
-```php
-/*
-Template Name: Canvas Full
-*/
-```
+- **Por defecto**: Página simple sin dashboard
+- **Dashboard Canvas**: Para contenido que necesita ocupar toda la pantalla (ej: mapas, aplicaciones)
+- **Dashboard Over**: Para páginas normales con el dashboard
 
-### Dashboard Templates
-For admin panels and applications:
-```php
-/*
-Template Name: Dashboard Overflow
-*/
-// or
-/*
-Template Name: Dashboard Full
-*/
-```
+## Personalización
 
-## CSS Variables
+### Tema por Defecto
 
-The theme uses CSS custom properties that can be accessed by plugins:
+Ve a **Apariencia > Personalizar > Theme Options** para configurar:
+- Tema por defecto (Dark/Light)
+- Estado inicial del sidebar (Abierto/Cerrado)
+
+### CSS Personalizado
+
+El tema usa variables CSS que puedes sobrescribir:
 
 ```css
-/* Colors */
---nova-primary: #007bff;
---nova-secondary: #6c757d;
---nova-success: #28a745;
---nova-danger: #dc3545;
---nova-warning: #ffc107;
---nova-info: #17a2b8;
-
-/* Theme Colors (changes with dark/light mode) */
---nova-bg-primary: #0a0a0a;
---nova-bg-secondary: #1a1a1a;
---nova-bg-tertiary: #2a2a2a;
---nova-text-primary: #ffffff;
---nova-text-secondary: #b0b0b0;
-
-/* Spacing */
---nova-spacing-xs: 0.25rem;
---nova-spacing-sm: 0.5rem;
---nova-spacing-md: 1rem;
---nova-spacing-lg: 1.5rem;
---nova-spacing-xl: 2rem;
---nova-spacing-xxl: 3rem;
-
-/* And many more... */
+:root {
+  --bg-primary: #1a1a1a;
+  --text-primary: #ffffff;
+  --accent-primary: #ffffff;
+  /* ... más variables en css/variables.css */
+}
 ```
 
-## Plugin Integration
+### Funciones Auxiliares
 
-The theme is designed to work seamlessly with plugins by:
-1. Providing consistent CSS variables
-2. Offering hooks and filters for customization
-3. Supporting style overrides through theme settings
+- `nova_template_get_user_avatar($user_id)` - Obtiene el avatar del usuario con fallback
+- `nova_template_logo_icon()` - Muestra el logo icono
+- `nova_template_logo_full()` - Muestra el logo completo
 
-### Available Hooks
-
-```php
-// Modify dashboard menu items
-add_filter('nova_solar_dashboard_menu', 'your_function');
-
-// Modify warp status data
-add_filter('nova_solar_warp_status', 'your_function');
-
-// Override plugin styles
-add_filter('nova_solar_override_plugin_styles', '__return_true');
-```
-
-## Theme Customizer
-
-Access theme options through **Appearance > Customize > Nova Solar Options**:
-
-- **Colors**: Primary and secondary color customization
-- **Dashboard Settings**: Sidebar width, theme mode, pattern opacity
-- **Typography**: Base font size adjustment
-
-## JavaScript API
-
-### Theme Mode
-```javascript
-// Change theme mode
-NovaSolar.setThemeMode('light'); // or 'dark'
-
-// Get current theme mode
-const mode = NovaSolar.getCookie('nova_theme_mode');
-```
-
-### Sidebar Control
-```javascript
-// Toggle sidebar
-NovaSolar.toggleSidebar();
-
-// Check sidebar state
-const isCollapsed = $('.dashboard-sidebar').hasClass('is-collapsed');
-```
-
-## File Structure
+## Estructura de Archivos
 
 ```
 nova-template-wp-solar/
-├── assets/
-│   ├── css/           # Compiled CSS
-│   ├── scss/          # Source SCSS files
-│   │   ├── abstracts/ # Variables, mixins, functions
-│   │   ├── base/      # Reset, typography, base styles
-│   │   ├── components/# Buttons, cards, forms, etc.
-│   │   ├── layout/    # Header, footer, sidebar, grid
-│   │   └── templates/ # Template-specific styles
-│   ├── js/            # JavaScript files
-│   └── images/        # Theme images
-├── includes/          # PHP includes
-├── templates/         # Page templates
-├── functions.php      # Theme functions
-├── style.css         # Theme info
-└── README.md         # Documentation
+├── css/
+│   ├── main.css           # Archivo principal de estilos
+│   ├── variables.css      # Variables CSS
+│   ├── base.css           # Estilos base
+│   ├── sidebar.css        # Estilos del sidebar
+│   ├── buttons.css        # Estilos de botones
+│   ├── components.css     # Componentes reutilizables
+│   ├── bottom-navigation.css # Navegación móvil
+│   └── mobile/            # Estilos específicos para móvil
+├── js/
+│   ├── main.js            # JavaScript principal
+│   ├── mobile.js          # JavaScript para móvil
+│   └── customizer.js      # Scripts del personalizador
+├── inc/
+│   ├── customizer.php     # Configuración del personalizador
+│   ├── menu-walker.php    # Clases Walker para menús
+│   ├── template-functions.php # Funciones del tema
+│   └── logo-functions.php # Funciones para logos
+├── page-templates/        # Plantillas de página
+├── img/                   # Imágenes del tema
+└── [archivos principales de WordPress]
 ```
 
-## Browser Support
+## Soporte para Iconos
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers
+El tema usa Tabler Icons. Puedes encontrar todos los iconos disponibles en:
+https://tabler-icons.io/
 
-## Contributing
+Ejemplo de uso:
+```html
+<i class="ti ti-home"></i>
+```
 
-1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a new Pull Request
+## Hooks y Filtros
 
-## License
+### Filtros Disponibles
 
-GPL v2 or later
+- `nova_template_custom_background_args` - Argumentos del fondo personalizado
+- `nova_template_content_wrapper_classes` - Clases del wrapper de contenido
+- `nova_template_main_content_classes` - Clases del contenido principal
 
-## Credits
+### Actions Disponibles
 
-- **Author**: NovaLabss
-- **Icons**: Tabler Icons
-- **Framework**: Custom SCSS architecture
+- `nova_template_before_sidebar` - Antes del sidebar
+- `nova_template_after_sidebar` - Después del sidebar
 
-## Support
+## Requisitos
 
-For support, please visit [https://novalabss.com/](https://novalabss.com/)
+- WordPress 5.0 o superior
+- PHP 7.0 o superior
+
+## Licencia
+
+Este tema está licenciado bajo GPL v2 o posterior.
+
+## Créditos
+
+- Desarrollado por NovaLabss
+- Iconos por Tabler Icons
+- Basado en el proyecto ai-solar-nova-ui
+
+## Soporte
+
+Para soporte y consultas, visita: https://novalabss.com

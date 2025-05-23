@@ -1,0 +1,16 @@
+/* Mobile Main Content Adjustments */
+@media (max-width: 767px) {
+  /* Main content wrapper */
+  .main-content {
+    margin-left: 0;
+    padding: var(--spacing-md);
+    padding-bottom: calc(var(--bottom-bar-height) + var(--spacing-lg) * 2);
+  }
+  .mobile-only{
+    display: flex!important;
+  }
+  /* Prevent body scroll when sidebar is open */
+  body.sidebar-open {
+    overflow: hidden;
+  }
+}

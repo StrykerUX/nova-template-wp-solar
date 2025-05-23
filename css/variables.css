@@ -1,0 +1,110 @@
+:root {
+  /* Colors - Dark Theme */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #252525;
+  --bg-sidebar: #2a2a2a;
+  --bg-hover: #333333;
+  --bg-active: #404040;
+  --bg-card: #333333;
+  --bg-pattern: #1f1f1f;
+  
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --text-tertiary: #6b6b6b;
+  
+  /* Accent Colors */
+  --accent-primary: #ffffff;
+  --accent-secondary: #666666;
+  --accent-warning: #ffa500;
+  
+  /* Border Colors */
+  --border-primary: #404040;
+  --border-secondary: #505050;
+  
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+  --spacing-xxxl: 72px;
+  
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-llg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  
+  /* Font Sizes */
+  --font-xs: 12px;
+  --font-sm: 14px;
+  --font-md: 16px;
+  --font-lg: 18px;
+  --font-xl: 20px;
+  --font-xxl: 24px;
+  
+  /* Font Weights */
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 480ms ease;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+  
+  /* Z-index */
+  --z-sidebar: 100;
+  --z-dropdown: 200;
+  --z-modal: 300;
+  --z-tooltip: 400;
+  
+  /* Sidebar */
+  --sidebar-width-open: 260px;
+  --sidebar-width-closed: 72px;
+  --sidebar-margin: 16px;
+  
+  /* Bottom Bar */
+  --bottom-bar-height: 72px;
+
+  --circles-background-color:rgba(120,120,120,.2);
+}
+
+/* Light Theme */
+[data-theme="light"] {
+  --bg-primary: #f5f5f5;
+  --bg-secondary: #ffffff;
+  --bg-sidebar: #ffffff;
+  --bg-hover: #f0f0f0;
+  --bg-active: #e0e0e0;
+  --bg-card: #f8f8f8;
+  --bg-pattern: #fafafa;
+  
+  --text-primary: #1a1a1a;
+  --text-secondary: #666666;
+  --text-tertiary: #999999;
+  
+  --accent-primary: #1a1a1a;
+  --accent-secondary: #999999;
+  
+  --border-primary: #e0e0e0;
+  --border-secondary: #d0d0d0;
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+  --circles-background-color:rgba(120,120,120,.33);
+}

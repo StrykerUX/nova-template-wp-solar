@@ -1,0 +1,31 @@
+/* Mobile Styles Index - Import all mobile modules */
+@import url('mobile-sidebar.css');
+@import url('mobile-bottom-nav.css');
+@import url('mobile-main.css');
+
+/* Mobile-specific utilities */
+@media (max-width: 767px) {
+  /* Hide desktop menu toggle */
+  .menu-toggle-top {
+    display: none;
+  }
+  
+  /* Ensure mobile menu button works */
+  #mobile-menu-toggle {
+    cursor: pointer;
+  }
+  
+  /* Mobile overlay must be visible */
+  .sidebar-overlay {
+    display: block !important;
+  }
+  
+  /* Safe area support */
+  .bottom-navigation {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .sidebar {
+    bottom: calc(var(--spacing-md) + env(safe-area-inset-bottom));
+  }
+}

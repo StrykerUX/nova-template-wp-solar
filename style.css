@@ -1,17 +1,20 @@
 /*
 Theme Name: Nova Template WP Solar
-Theme URI: https://novalabss.com/
+Theme URI: https://novalabss.com
 Author: NovaLabss
-Author URI: https://novalabss.com/
-Description: A professional WordPress theme with Canvas and Dashboard templates, featuring dark/light modes and modular CSS architecture
+Author URI: https://novalabss.com
+Description: Un tema de WordPress con un dashboard moderno basado en el proyecto ai-solar-nova-ui, con sidebar dinámico, soporte para logos personalizados, menús de WordPress y tres plantillas de página diferentes.
 Version: 1.0.0
 License: GPL v2 or later
-Text Domain: nova-solar
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: nova-template-wp-solar
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, dashboard, sidebar, responsive
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
 */
 
 /* 
- * This file is intentionally left mostly empty.
- * All styles are compiled from SCSS files and loaded through enqueued stylesheets.
- * See assets/css/main.css for the compiled styles.
+ * Este archivo style.css es solo para la información del tema.
+ * Los estilos reales están en css/main.css
  */

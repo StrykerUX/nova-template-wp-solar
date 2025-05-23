@@ -1,0 +1,7 @@
+/* Mobile Bottom Navigation - Additional Styles */
+@media (max-width: 767px) {
+  .bottom-navigation {
+    border: 1px solid var(--border-primary);
+    max-width: 400px;
+  }
+}

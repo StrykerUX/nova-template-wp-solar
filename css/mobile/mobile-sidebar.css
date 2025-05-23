@@ -1,0 +1,112 @@
+/* Mobile Sidebar - Floating Full Screen */
+@media (max-width: 767px) {
+  /* Keep sidebar floating but full screen on mobile */
+  .sidebar {
+    top: var(--spacing-md);
+    left: var(--spacing-md);
+    bottom: var(--spacing-md);
+    right: var(--spacing-md);
+    width: auto;
+    max-width: 100%;
+    transform: translateY(calc(100% + var(--spacing-md) * 2));
+    transition: transform var(--transition-slow);
+    /* Keep the floating rounded style */
+    border-radius: var(--radius-xl);
+    padding-bottom: var(--spacing-xxxl);
+  }
+  
+  .sidebar.open {
+    transform: translateY(0);
+  }
+  
+  /* Hide desktop-only elements */
+  .sidebar.closed {
+    width: auto;
+  }
+  .sidebar-nav{
+    padding:  0 var(--spacing-md);
+  }
+  /* Ensure all sidebar content is visible on mobile */
+  .sidebar-logo-text,
+  .nav-section-text,
+  .nav-item-text,
+  .user-info,
+  .action-btn span,
+  .theme-option span {
+    opacity: 1 !important;
+    width: auto !important;
+    display: inline !important;
+  }
+  .sidebar-logo{
+    padding: var(--spacing-md) var(--spacing-md);
+  }
+  /* Show all cards on mobile */
+  .warp-card {
+    opacity: 1 !important;
+    height: auto !important;
+    padding: var(--spacing-sm) !important;
+    margin-bottom: var(--spacing-sm) !important;
+    overflow: visible !important;
+    border: 1px solid var(--border-primary) !important;
+  }
+  
+  /* Hide vertical warp on mobile */
+  .warp-vertical {
+    display: none !important;
+  }
+  
+  /* Ensure user section is expanded */
+  .user-section {
+    border-radius: var(--radius-lg) !important;
+    gap: var(--spacing-sm) !important;
+    padding: var(--spacing-sm) !important;
+    margin-bottom: var(--spacing-sm) !important;
+  }
+  
+  .user-profile {
+    height: auto !important;
+    width: 100% !important;
+    gap: var(--spacing-sm) !important;
+  }
+  
+  .user-avatar {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  .nav-list{
+    padding: 0;
+  }
+  /* Action button always expanded */
+  .action-btn {
+    width: 100% !important;
+    height: auto !important;
+    padding: var(--spacing-sm) !important;
+  }
+  
+  /* Theme toggle horizontal on mobile */
+  .theme-toggle {
+    flex-direction: row !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    width: 100% !important;
+  }
+  
+  .theme-option {
+    width: auto !important;
+    height: 32px !important;
+    padding: 0 var(--spacing-xs) !important;
+    border-radius: var(--radius-md) !important;
+  }
+
+  .nav-item{
+    padding: var(--spacing-sm) var(--spacing-sm);
+  }
+  
+}
+
+/* Overlay for mobile */
+@media (max-width: 767px) {
+  .sidebar-overlay {
+    display: block;
+  }
+}
