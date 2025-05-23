@@ -46,7 +46,7 @@ class Nova_Sidebar_Walker extends Walker_Nav_Menu {
             $classes[] = 'active';
         }
         
-        $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args));
+        $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args, $depth));
         $class_names = $class_names ? ' class="' . esc_attr($class_names) . '"' : '';
         
         $id = apply_filters('nav_menu_item_id', 'menu-item-' . $item->ID, $item, $args);
@@ -125,7 +125,7 @@ class Nova_Mobile_Bottom_Walker extends Walker_Nav_Menu {
             $classes[] = 'active';
         }
         
-        $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args));
+        $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args, $depth));
         $class_names = $class_names ? ' class="' . esc_attr($class_names) . '"' : '';
         
         $attributes  = !empty($item->attr_title) ? ' title="'  . esc_attr($item->attr_title) . '"' : '';
