@@ -109,6 +109,13 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/logo-functions.php';
 
 /**
+ * WooCommerce support
+ */
+if (class_exists('WooCommerce')) {
+    require get_template_directory() . '/inc/woocommerce-functions.php';
+}
+
+/**
  * Add custom classes to body
  */
 function nova_template_body_classes($classes) {
